@@ -1,5 +1,6 @@
 package com.davidlangheiter.prime;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,9 @@ import java.util.Date;
 @Controller
 public class Web {
 
+    @Autowired
+    Searcher searcher;
+
     @GetMapping("/primes")
     public void redirect(HttpServletResponse response) throws IOException {
         response.sendRedirect("/primes/searcher");
@@ -18,9 +22,9 @@ public class Web {
 
     @GetMapping("/primes/searcher")
     public String getPrime(Model model) {
-        model.addAttribute("started", new Date().toLocaleString());
-        model.addAttribute("latestPrime", "13");
-        model.addAttribute("foundAt", new Date().toLocaleString());
+        model.addAttribute("started", searcher.getStart());
+        //model.addAttribute("latestPrime", searcher.getPrime().toString());
+        //model.addAttribute("foundAt", searcher.getLastFound().toString());
         return "prime";
     }
 
