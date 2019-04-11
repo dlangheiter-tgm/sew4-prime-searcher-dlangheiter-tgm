@@ -23,8 +23,8 @@ public class Web {
     @GetMapping("/primes/searcher")
     public String getPrime(Model model) {
         model.addAttribute("started", searcher.getStart());
-        //model.addAttribute("latestPrime", searcher.getPrime().toString());
-        //model.addAttribute("foundAt", searcher.getLastFound().toString());
+        model.addAttribute("latestPrime", searcher.getPrime().toString());
+        model.addAttribute("foundAt", searcher.getLastFound());
         return "prime";
     }
 

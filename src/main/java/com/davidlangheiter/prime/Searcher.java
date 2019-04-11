@@ -7,11 +7,13 @@ import java.util.Date;
 public class Searcher {
 
     private Date start;
-    private BigInteger prime;
+    private Integer prime;
     private Date lastFound;
 
     Searcher() {
         this.start = new Date();
+        this.prime = 2;
+        this.lastFound = new Date();
     }
 
     @PostConstruct
@@ -23,7 +25,7 @@ public class Searcher {
         return start;
     }
 
-    public BigInteger getPrime() {
+    public Integer getPrime() {
         return prime;
     }
     public Date getLastFound() {
