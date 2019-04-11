@@ -11,14 +11,14 @@ import java.util.Date;
 public class SearchRunner implements ApplicationRunner {
 
     private Date start;
-    private int lastPrime;
+    private long lastPrime;
     private Date lastFound;
     private boolean running;
 
     public SearchRunner() {
         this.start = new Date();
         this.running = true;
-        this.lastPrime = 2;
+        this.lastPrime = 2L;
         this.lastFound = new Date();
     }
 
@@ -29,7 +29,7 @@ public class SearchRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) {
-        int currentNum = this.lastPrime;
+        long currentNum = this.lastPrime;
 
         while(this.running) {
             currentNum++;
@@ -50,7 +50,7 @@ public class SearchRunner implements ApplicationRunner {
      * @param number The number to check if it is a prime
      * @return True if prime else false
      */
-    private static boolean isPrimeBruteForce(int number) {
+    private static boolean isPrimeBruteForce(long number) {
         for (int i = 2; i < number; i++) {
             if (number % i == 0) {
                 return false;
@@ -63,7 +63,7 @@ public class SearchRunner implements ApplicationRunner {
         return start;
     }
 
-    public int getLastPrime() {
+    public long getLastPrime() {
         return lastPrime;
     }
 
