@@ -6,11 +6,41 @@
 </head>
 <body>
 
-<h1>Prime</h1>
+<style>
+    html, body {
+        margin: 0;
+        padding: 0;
+        border: none;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    main {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        padding-top: 5vh;
+    }
+</style>
 
-<h4>Started at: <span th:text="${started}" /></h4>
-<h4>Latest prime: <span th:text="${latestPrime}" /></h4>
-<h4>Found at: <span th:text="${foundAt}" /></h4>
+<main>
+    <div class="main">
+        <h1>Prime Searcher</h1>
+
+        <table>
+            <tr>
+                <td>Started at:</td>            <td th:text="${started}"></td>
+            </tr>
+            <tr>
+                <td>Latest prime: </td>         <td th:text="${latestPrime}"></td>
+            </tr>
+            <tr>
+                <td>Found at: </td>             <td th:text="${foundAt}"></td>
+            </tr>
+        </table>
+    </div>
+</main>
 
 </body>
 </html>
