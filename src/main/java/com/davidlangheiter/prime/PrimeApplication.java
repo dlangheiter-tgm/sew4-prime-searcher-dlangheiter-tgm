@@ -11,9 +11,4 @@ public class PrimeApplication {
 		SpringApplication.run(PrimeApplication.class, args);
 	}
 
-	@Bean
-	public Searcher searcher() {
-		return new Searcher();
-	}
-
 }

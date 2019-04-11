@@ -7,13 +7,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
 
 @Controller
 public class Web {
 
     @Autowired
-    Searcher searcher;
+    SearchRunner searchRunner;
 
     @GetMapping("/primes")
     public void redirect(HttpServletResponse response) throws IOException {
@@ -22,9 +21,9 @@ public class Web {
 
     @GetMapping("/primes/searcher")
     public String getPrime(Model model) {
-        model.addAttribute("started", searcher.getStart());
-        model.addAttribute("latestPrime", searcher.getPrime().toString());
-        model.addAttribute("foundAt", searcher.getLastFound());
+        model.addAttribute("started", searchRunner.getStart());
+        model.addAttribute("latestPrime", searchRunner.getLastPrime());
+        model.addAttribute("foundAt", searchRunner.getLastFound());
         return "prime";
     }
 
